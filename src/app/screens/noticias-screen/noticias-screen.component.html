@@ -1,0 +1,52 @@
+<!-- <div class="container">
+    <h2 class="text-center my-5">Noticias</h2>
+    <div class="row my-5 py-5">
+        <div class="col-12 col-md-6 col-lg-4 d-flex align-items-stretch justify-content-center my-3"
+        *ngFor="let noticia of noticias">
+            <app-card-noticia
+            [noticia]=noticia
+            [color_class]=getColor(noticia.categoria)></app-card-noticia>
+        </div>
+        
+    </div>
+</div> -->
+
+
+<!-- quiero enlistar en tipo2(noticia estilo extendido) 
+quiero 2 card por fila-->
+<div class="container-fluid">
+    <div class="row">
+
+        <app-enlistador
+        [tipo]=2
+        [cuantasPorFila]=2
+        [limite]=[noticia_inicio,noticia_final]
+        ></app-enlistador>
+
+    </div>
+    <div class="row">
+        <div class="col-6 offset-6 ">
+
+            <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                <div id="listaPaginas" class="btn-group me-2" role="group" aria-label="First group">
+                  <!-- <button type="button" class="btn btn-primary">1</button> -->
+                </div>
+                <div id="ult_pagina" class="btn-group" role="group" aria-label="Third group">
+                  <button type="button" class="btn btn-info"></button>
+                </div>
+              </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- <div class="container">
+    <div class="row">
+        <div class="col">
+            <p>totalNoticias : {{totalNoticias}}</p>
+            <p>noticia_inicio : {{noticia_inicio}}</p>
+            <p>noticia_final: {{noticia_final}}</p>
+            <p>cantidadPaginas : {{cantidadPaginas}}</p>
+        </div>
+    </div>
+</div> -->

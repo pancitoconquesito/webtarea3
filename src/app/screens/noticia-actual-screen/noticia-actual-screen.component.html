@@ -1,0 +1,30 @@
+<div class="container">
+    
+    <div class="row my-2">
+        <h3 class="text-center my-5 my-5">{{noticiaActual.titulo}}</h3>
+    </div>
+    <div class="row">
+        <div class="col-md-5 offset-md-1 col-lg-2 offset-lg-9">
+            <p id="categoria">{{categoria}}</p> 
+        </div>
+        <div class="col-md-6 col-lg-1">
+            <small>{{noticiaActual.fecha |date}}</small> 
+        </div>
+    </div>
+
+
+
+    <div class="row">
+        <div class="col text-center">
+            <img src={{noticiaActual.img}} class="img_noticia" alt="{{noticiaActual.img}} ">
+
+        </div>
+    </div>
+    <div class="row m-4">
+        <h4>Autor: {{noticiaActual.autor}}</h4>
+    </div>
+    <div class="row mt-3 mb-5 p-3">
+        <p>{{noticiaActual.contenido}}</p>
+    </div>
+
+</div>

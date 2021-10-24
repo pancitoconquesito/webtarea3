@@ -1,0 +1,69 @@
+<div class="container my-5">
+    <div class="row">
+        <h2 class="text-center mt-2 mb-5">Servicio al Cliente</h2>
+        <form [formGroup]="formulario" *ngIf="!mensajeEnviado" 
+        (ngSubmit)="validacion()"  novalidate>
+        
+            <div class="mb-3">
+                <label for="nombrecompleto" class="form-label">Nombre Completo</label>
+                <input type="text" class="form-control" id="nombrecompleto" formControlName="nombrecompleto">
+                <div *ngIf="formulario.controls['nombrecompleto'].invalid && (formulario.controls['nombrecompleto'].touched || formulario.controls['nombrecompleto'].dirty)" 
+                class="alert alert-danger">
+                    <div *ngIf="formulario.controls['nombrecompleto'].hasError('required')">Campo es obligatorio</div>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="telefono" class="form-label">Teléfono</label>
+                <input type="tel" class="form-control" id="telefono" formControlName="telefono">
+                <div *ngIf="formulario.controls['telefono'].invalid && (formulario.controls['telefono'].touched || formulario.controls['telefono'].dirty)" 
+                class="alert alert-danger">
+                    <div *ngIf="formulario.controls['telefono'].hasError('required')">Campo es obligatorio</div>
+                </div>
+            </div>
+    
+            <div class="mb-3">
+                <label for="email" class="form-label">Correo Electrónico</label>
+                <input type="email" class="form-control" id="email" formControlName="email">
+                <div *ngIf="formulario.controls['email'].invalid && (formulario.controls['email'].touched || formulario.controls['email'].dirty)" 
+                class="alert alert-danger">
+                    <div *ngIf="formulario.controls['email'].hasError('required')">Campo es obligatorio</div>
+                </div>
+            </div>
+              
+            <div class="mb-3">
+                <label class="form-label">Dirigido a</label>
+                <select (click)="validarSelect_tr()" class="form-select"  formControlName="dirigido" >
+                    <option selected value=0>-- Selecciona una opción --</option>
+                    <option value="1">Contenidos</option>
+                    <option value="2">Publicidad</option>
+                    <option value="3">Sugerencias</option>
+                    <option value="4">Suscripciones Digitales</option>
+                </select>
+                <div *ngIf="dirigido_validador" 
+                class="alert alert-danger">
+                    Debes seleccionar una opcion, campo obligatorio
+                </div>
+
+            </div>
+            
+            <div class="mb-3">
+                <label for="mensaje" class="form-label">Mensaje (mínimo 15 caracteres.)</label>
+                <textarea formControlName="mensaje" id="mensaje" class="form-control" rows="3"></textarea>
+            </div>
+            <div *ngIf="formulario.controls['mensaje'].invalid && (formulario.controls['mensaje'].touched || formulario.controls['mensaje'].dirty)" 
+            class="alert alert-danger">
+                <div *ngIf="formulario.controls['mensaje'].hasError('required')">Campo es obligatorio</div>
+                <div *ngIf="formulario.controls['mensaje'].hasError('minlength')">Mínimo de 15 caracteres</div>
+            </div>
+
+        
+            <button [disabled]="!formulario.valid" type="submit" class="btn btn-primary">Enviar</button>
+          </form>
+    </div>
+
+    <div class="col-6 offset-3 text-center alert alert-success" role="alert" *ngIf="mensajeEnviado">
+        Tu mensaje a sido enviado exitosamente!
+    </div>
+</div>
+

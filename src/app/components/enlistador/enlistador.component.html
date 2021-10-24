@@ -1,0 +1,43 @@
+<span>{{setCuantasPorFila()}} {{vaciarLista()}}</span>
+<div class="container">
+    
+    <div class="row my-5"
+    *ngIf="tipo==0">
+        <span >{{enlistarDestacados()}}</span>
+        <div class="{{init_definitive}}    d-flex align-items-stretch justify-content-center my-3"
+            *ngFor="let noticia of lista_noticias">
+                <!-- card -->
+                <app-card-noticia
+                [noticia]=noticia
+                [color_class]=getColor(noticia.categoria)></app-card-noticia>
+                <!-- card -->
+        </div>
+    </div>
+
+    <div class="row my-5"
+    *ngIf="tipo==1">
+        <span >{{enlistarTodos()}}</span>
+        <div class="{{init_definitive}}    d-flex align-items-stretch justify-content-center my-3"
+            *ngFor="let noticia of lista_noticias">
+                <!-- card -->
+                <app-card-noticia-neutra
+                [noticia]=noticia
+               
+                ></app-card-noticia-neutra>
+                <!-- card -->
+        </div>
+    </div>
+
+    <div class="row my-5"
+    *ngIf="tipo==2">
+        <span >{{enlistarExtendido()}}</span>
+        <div class="{{init_definitive}}    d-flex align-items-stretch justify-content-center my-3"
+            *ngFor="let noticia of lista_noticias">
+                <!-- card -->
+                <app-card-noticia-extendida
+                [noticia]=noticia
+                [color_class]=getColor(noticia.categoria)></app-card-noticia-extendida>
+                <!-- card -->
+        </div>
+    </div>
+</div>

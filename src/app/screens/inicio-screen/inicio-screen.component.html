@@ -1,0 +1,29 @@
+<!-- <div class="container">
+    <div class="row my-5 py-5">
+        <div class="col-12 col-md-6 col-lg-4 d-flex align-items-stretch justify-content-center my-3"
+        *ngFor="let noticia of noticias">
+            <app-card-noticia
+            [noticia]=noticia
+            [color_class]=getColor(noticia.categoria)></app-card-noticia>
+        </div>
+    </div>
+</div> -->
+
+<!-- quiero enlistar en tipo0(noticia estilo destacado) 
+quiero 3 card por fila
+las noticias destacas seran con los id 1, 2 y 3 -->
+<app-enlistador
+[tipo]=0
+[cuantasPorFila]=3
+[lista_id_destacados]=[1,2,3]
+></app-enlistador>
+
+
+<!-- quiero enlistar en tipo1(noticia estilo neutro) 
+quiero 4 card por fila
+a partir de la posicion 0, quiero 4 -->
+<app-enlistador
+[tipo]=1
+[cuantasPorFila]=4
+[limite]=[0,4] 
+></app-enlistador>

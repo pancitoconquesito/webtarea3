@@ -1,0 +1,25 @@
+
+// .navbar-nav a:link{
+//     background-color: rgb(168, 126, 126);
+//     color: black !important;
+// }
+// .navbar-nav a:visited{
+//     background-color: rgb(168, 126, 126);
+//     color: black !important;
+// }
+.navbar{
+    background-color: rgb(57, 62, 75);
+}
+.navbar-nav a:focus{
+    background-color: rgb(74, 80, 94) !important;
+    color: rgb(255, 255, 255) !important;
+}
+.navbar-nav a:hover{
+    background-color: rgb(132, 126, 168) !important;
+    color: black !important;
+}
+.navbar-nav  a:active{
+    background-color: rgb(74, 80, 94) !important;
+    color: rgb(255, 255, 255) !important;
+}
+
