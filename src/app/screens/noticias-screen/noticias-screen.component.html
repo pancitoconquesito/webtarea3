@@ -15,30 +15,75 @@
 <!-- quiero enlistar en tipo2(noticia estilo extendido) 
 quiero 2 card por fila-->
 <div class="container-fluid">
-    <div class="row">
+    
+    <div class="row my-5">
+        <h2 class="text-center display-2">Noticias</h2>
+        <small class="text-center">[ Noticia N°: {{noticia_inicio}} - {{count_ult_pagina}} ]</small>
+        <small class="text-center">[ Página N°: {{newPagina}} / {{cantidadPaginas}} ]</small>
+    </div>
 
+    <div class="row">
+        
         <app-enlistador
         [tipo]=2
         [cuantasPorFila]=2
         [limite]=[noticia_inicio,noticia_final]
         ></app-enlistador>
-
+        
     </div>
+    
     <div class="row">
+        <div class="col-6 offset-6">Página N°: [ {{newPagina}} ]</div>
+    </div>
+    
+    <!-- <div class="row">
         <div class="col-6 offset-6 ">
 
             <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
                 <div id="listaPaginas" class="btn-group me-2" role="group" aria-label="First group">
-                  <!-- <button type="button" class="btn btn-primary">1</button> -->
                 </div>
-                <div id="ult_pagina" class="btn-group" role="group" aria-label="Third group">
-                  <button type="button" class="btn btn-info"></button>
+                
+                    <div id="ult_pagina" class="btn-group" role="group" aria-label="Third group">
+                    <button type="button" class="btn btn-info"></button>
+
+               
                 </div>
-              </div>
+            </div>
         </div>
+    </div> -->
+
+    <div class="row">
+        <div class="col-6 offset-6">Noticia N°: {{noticia_inicio}}/{{count_ult_pagina}}</div>
     </div>
 </div>
 
+
+
+
+<div class="container ">  
+    <div class="row">    
+        <div class="col-6 offset-6 shadow p-3">
+            <div class="container">
+                <div class="row">  
+                    <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                        <div class="btn-group me-2" role="group" aria-label="First group">
+                            <div id="listaPaginas" class="row">
+                                
+                                <!-- <button type="button" class="btn btn-primary">1</button> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+              
+                        <div id="ult_pagina" class="col-5 offset-7 col-md-3 offset-md-9 btn-group" role="group" aria-label="Third group">
+                            <button type="button" class="btn btn-info"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <!-- <div class="container">
     <div class="row">
@@ -50,3 +95,4 @@ quiero 2 card por fila-->
         </div>
     </div>
 </div> -->
+

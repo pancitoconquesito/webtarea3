@@ -14,12 +14,12 @@ export class NoticiasScreenComponent implements OnInit {
   
   totalNoticias:number=0;
   noticia_inicio:number=0;
-  noticia_final:number=9;
+  noticia_final:number=10;
   cantidadPaginas:number=0;
   constructor(){ 
     this.totalNoticias=lista_noticias.length;
     this.noticia_inicio=0;
-    this.noticia_final=10;
+    //this.noticia_final=10;
     this.cantidadPaginas=parseInt(String(this.totalNoticias/10), 10);
     if(this.cantidadPaginas*10 < this.totalNoticias) this.cantidadPaginas++;
 
@@ -34,7 +34,7 @@ export class NoticiasScreenComponent implements OnInit {
 
       let divHijo:any=document.createElement("button");
       divHijo.type="button";
-      divHijo.className += " btn btn-primary";
+      divHijo.className += "m-1 col-4 col-md-3 col-lg-2 btn btn btn-primary";
       divHijo.innerHTML=i+1;
 
       divHijo.addEventListener('click', (evt:any) => this.cambiarA_Pagina(evt));
@@ -42,7 +42,7 @@ export class NoticiasScreenComponent implements OnInit {
     }
     let ult_pagina:any=document.getElementById("ult_pagina");
     ult_pagina.innerHTML=this.cantidadPaginas;
-    ult_pagina.className += " btn btn-info";
+    ult_pagina.className += "col-2 btn btn-info";
     ult_pagina.addEventListener('click', (evt:any) => this.cambiarA_Pagina(evt));
     
   }
@@ -53,11 +53,23 @@ export class NoticiasScreenComponent implements OnInit {
   }
 
   cambiarA_Pagina(elem:any):void{ 
-    let newPagina:number=elem.target.textContent;
-    this.noticia_inicio=11*(newPagina-1)-1;
-    if(this.noticia_inicio==0)this.noticia_inicio++;
-    this.noticia_final=this.noticia_inicio+11;
-    if(this.noticia_final>this.totalNoticias)this.noticia_final=this.totalNoticias;
-
+    this.newPagina=elem.target.textContent;
+    this.noticia_inicio=10*(this.newPagina-1);
+    this.count_ult_pagina=this.noticia_inicio+10;
+    if(this.count_ult_pagina>this.totalNoticias)this.count_ult_pagina=this.totalNoticias;
+    this.setColorCuadro(this.newPagina);
   }
+  setColorCuadro(n:number){
+    let listaPaginas:any=document.getElementById("listaPaginas");
+    let hijosLista:any=listaPaginas.childNodes;
+    for (var i = 0; i < hijosLista.length; i++) {
+      if(hijosLista[i].textContent==n){
+        hijosLista[i].classList.replace('btn-primary', 'btn-info');
+      }else{
+        hijosLista[i].classList.replace('btn-info','btn-primary');
+      }
+    }
+  }
+  newPagina:number=0;
+  count_ult_pagina:number=10;
 }
