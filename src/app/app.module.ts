@@ -16,6 +16,8 @@ import { NoticiaActualScreenComponent } from './screens/noticia-actual-screen/no
 import { EnlistadorComponent } from './components/enlistador/enlistador.component';
 import { CardNoticiaNeutraComponent } from './components/card-noticia-neutra/card-noticia-neutra.component';
 import { CardNoticiaExtendidaComponent } from './components/card-noticia-extendida/card-noticia-extendida.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,

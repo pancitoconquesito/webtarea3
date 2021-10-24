@@ -19,7 +19,7 @@ export class NoticiasScreenComponent implements OnInit {
   constructor(){ 
     this.totalNoticias=lista_noticias.length;
     this.noticia_inicio=0;
-    this.noticia_final=9;
+    this.noticia_final=10;
     this.cantidadPaginas=parseInt(String(this.totalNoticias/10), 10);
     if(this.cantidadPaginas*10 < this.totalNoticias) this.cantidadPaginas++;
 
@@ -30,7 +30,7 @@ export class NoticiasScreenComponent implements OnInit {
 
   ngOnInit(): void {
     let listaPaginas:any=document.getElementById("listaPaginas");
-    for(let i=0;i<2;i++){
+    for(let i=0;i<this.cantidadPaginas;i++){
 
       let divHijo:any=document.createElement("button");
       divHijo.type="button";
@@ -51,21 +51,12 @@ export class NoticiasScreenComponent implements OnInit {
     let objPivote:any=this.lista_categorias.find(obj=>obj.id==idCategoria);
     return objPivote["color_class"];
   }
-  // aumentarPagina(){
-  //   this.noticia_inicio+=10;
-  //   if(this.noticia_final+10<=this.totalNoticias)
-  //     this.noticia_final+=10;
-  //   else
-  //   this.noticia_final=this.totalNoticias;
-  // }
-  // disminuirPagina(){
-  //   if(this.noti)
-  // }
+
   cambiarA_Pagina(elem:any):void{ 
     let newPagina:number=elem.target.textContent;
     this.noticia_inicio=11*(newPagina-1)-1;
     if(this.noticia_inicio==0)this.noticia_inicio++;
-    this.noticia_final=this.noticia_inicio+9;
+    this.noticia_final=this.noticia_inicio+11;
     if(this.noticia_final>this.totalNoticias)this.noticia_final=this.totalNoticias;
 
   }
