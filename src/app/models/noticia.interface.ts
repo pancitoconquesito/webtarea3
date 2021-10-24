@@ -1,5 +1,5 @@
-import data from '../models/data.json';
-
+import data100 from '../models/data.json';
+import data1000 from '../models/data2.json';
 
 export interface Noticia{
   id:number;
@@ -10,7 +10,13 @@ export interface Noticia{
   categoria:number;
   fecha: string;
 }
-export let lista_noticias:Array<Noticia>=data;
+export let lista_noticias:Array<Noticia>=data100;
+
+// no funciona si hago deploy u.u
+// for(let i=0;i<data1000.length;i++)
+//   lista_noticias.push(data1000[i]);
+
+
 // export let lista_noticias:Array<Noticia>=[
 //     { id:1,titulo:'titulo1',
 //       contenido:'contenido1',
