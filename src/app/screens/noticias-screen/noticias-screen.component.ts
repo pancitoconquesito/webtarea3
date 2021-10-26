@@ -17,18 +17,17 @@ export class NoticiasScreenComponent implements OnInit {
   noticia_final:number=10;
   cantidadPaginas:number=0;
   constructor(){ 
+    
     this.totalNoticias=lista_noticias.length;
     this.noticia_inicio=0;
     //this.noticia_final=10;
     this.cantidadPaginas=parseInt(String(this.totalNoticias/10), 10);
     if(this.cantidadPaginas*10 < this.totalNoticias) this.cantidadPaginas++;
 
-    
-    
-    
   }
 
   ngOnInit(): void {
+    
     let listaPaginas:any=document.getElementById("listaPaginas");
     for(let i=0;i<this.cantidadPaginas;i++){
 

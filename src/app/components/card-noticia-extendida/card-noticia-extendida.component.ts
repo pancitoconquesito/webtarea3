@@ -16,6 +16,7 @@ export class CardNoticiaExtendidaComponent implements OnInit {
     this.noticia={
       id:0,titulo:'',contenido:'',img:'', autor:'', categoria:0, fecha:''
     };
+    
   }
 
   ngOnInit(): void {

@@ -16,6 +16,8 @@ export class NoticiaActualScreenComponent implements OnInit {
   noticiaActual:Noticia={id:0,titulo:'',contenido:'',img:'',autor:'',categoria:0,fecha:''};
 
   constructor(private ruta:ActivatedRoute) {
+    window.scroll(0,0);
+    
     this.ruta.params.subscribe(datos =>{
       this.id_noticia=datos["id"];
     });
