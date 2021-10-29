@@ -6,7 +6,8 @@
         
             <div class="mb-3">
                 <label for="nombrecompleto" class="form-label">Nombre Completo</label>
-                <input type="text" class="form-control" id="nombrecompleto" formControlName="nombrecompleto">
+                <input type="text" class="form-control" id="nombrecompleto" formControlName="nombrecompleto"
+                placeholder="ej: juan pedro perez ortega">
                 <div *ngIf="formulario.controls['nombrecompleto'].invalid && (formulario.controls['nombrecompleto'].touched || formulario.controls['nombrecompleto'].dirty)" 
                 class="alert alert-danger">
                     <div *ngIf="formulario.controls['nombrecompleto'].hasError('required')">Campo es obligatorio</div>
@@ -15,19 +16,24 @@
 
             <div class="mb-3">
                 <label for="telefono" class="form-label">Teléfono</label>
-                <input type="tel" class="form-control" id="telefono" formControlName="telefono">
+                <input type="tel" class="form-control" id="telefono" formControlName="telefono"
+                placeholder="ej: 123456789">
                 <div *ngIf="formulario.controls['telefono'].invalid && (formulario.controls['telefono'].touched || formulario.controls['telefono'].dirty)" 
                 class="alert alert-danger">
                     <div *ngIf="formulario.controls['telefono'].hasError('required')">Campo es obligatorio</div>
+                    <div *ngIf="formulario.controls['telefono'].hasError('pattern')">La cantidad de números debe ser de 9 y solo números</div>
+
                 </div>
             </div>
     
             <div class="mb-3">
                 <label for="email" class="form-label">Correo Electrónico</label>
-                <input type="email" class="form-control" id="email" formControlName="email">
+                <input type="email" class="form-control" id="email" formControlName="email"
+                placeholder="juan@gmail.com">
                 <div *ngIf="formulario.controls['email'].invalid && (formulario.controls['email'].touched || formulario.controls['email'].dirty)" 
                 class="alert alert-danger">
                     <div *ngIf="formulario.controls['email'].hasError('required')">Campo es obligatorio</div>
+                    <div *ngIf="formulario.controls['email'].hasError('email')">Error en formato email</div>
                 </div>
             </div>
               
