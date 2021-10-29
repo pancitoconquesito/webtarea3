@@ -52,14 +52,27 @@ export class EnlistadorComponent implements OnInit {
     let lista_noticias_pivote=lista_noticias;
     let largoTotal=lista_noticias_pivote.length;
     let count=0;
+    let esID:boolean=true;
     for(let i=0;i<largoTotal;i++){
+      esID=false;
       if(count==this.limite[1])break;
-      if(i>=this.limite[0]){
-
-        this.lista_noticias.push(lista_noticias_pivote[i]);
-        count++;
+      if(i>=this.limite[0]){  
+        for(let j=0;j<this.lista_id_destacados.length;j++){
+          if(lista_noticias_pivote[i].id==this.lista_id_destacados[j]){
+            esID=true;
+            break;
+          }
+        }
+        if(!esID){
+          this.lista_noticias.push(lista_noticias_pivote[i]);
+          count++;
+        }
       }
     }
+    // for(let j=0;j<this.lista_id_destacados.length;j++){
+    //   let elim:any=lista_noticias.find(obj=>obj.id==this.lista_id_destacados[j]);
+    //   this.lista_noticias.splice( this.lista_noticias.indexOf(elim), 1 );
+    // }
   }
 
   enlistarExtendido():void{
